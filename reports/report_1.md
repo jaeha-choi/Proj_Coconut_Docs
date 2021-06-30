@@ -19,9 +19,9 @@
 ## Programming
 
 - **Server**
-    ◦ Working on listener
+  - Working on listener
 - **Utility**
-    ◦ Working on Send/Receive packets
+  - Working on Send/Receive packets
 
 We have set up environments to allow us to work as a group. Version control enables us to handle
 conflicts, code history, merges. Kanban board helps us to keep track of our progress. We set up code
