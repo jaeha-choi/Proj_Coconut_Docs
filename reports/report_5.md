@@ -8,8 +8,7 @@
 ### Implementation
 
 #### **Mobile**
-- util.dart
-    - 
+
 - aes_gcm_encryption.dart
     - `encryptSetup` : Opens file using file path and determines number of chunks.
     
@@ -30,14 +29,14 @@
     **Key Features**
     - BottomNavigationBarItem - Creates the bottom taps(Contacts, Photos, Files) to switch the tap
 
-    - IndexedStack - Holds a stack of widget but shows only one at a time. All the state is preserved. Example case: user types other user name and switch to different tap and came back to tap again. It still saves the previously entered text
+    - IndexedStack - Holds a stack of widget but shows only one at a time. All the state is preserved. Example: user types other user name and switch to different tap and came back to the contact tap again. It still saves the previously entered text
 
 - contacts_page.dart
     - **Please look at the bottom image**
     - Added feature that prevents multiple clicks on button
 <p align="middle">
-  <img src="imgs/add_contacts.png" width="300"/>
   <img src="imgs/contacts_page.png" width="300"/>
+  <img src="imgs/add_contacts.png" width="300"/>
 </p>
 
 - phots_page.dart
