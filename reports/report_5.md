@@ -65,7 +65,9 @@
 - client.go - HolePunching
   - `DoRequestP2P`: Sends a request to the server asking to connect to another peer directly
   - `DoSendLocalIP`: Send host ip address and port to server to be sent to peer
-  - `DoOpenHolePunch`: *Work in progress* Initiates the HolePunching process and connects host to peer
+  - `DoOpenHolePunch`: Initiates the HolePunching process and connects host to peer
+  - `initPrivateAddr`: Attempts to begin a connection with identified private ip address of peer
+  - `initRemoteAddr`: Attempts to begin a connection with identified remote/public ip address of peer
 
 #### **Server**
 - server.go - HolePunching
