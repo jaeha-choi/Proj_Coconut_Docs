@@ -73,5 +73,4 @@
   - `handleGetLocalIP`: handle receiving the local ip address from client
 
 ### Other
-- Finalized the plan for implementing the main listening stream 
-- 
+- Finalized the plan for implementing the main listening stream
