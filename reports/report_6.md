@@ -7,7 +7,7 @@
 #### **Mobile**
  ## Encountered Issues ##
   - This week, we encountered issues when we tested encryption and decryption on cross platforms (mobile, desktop). This happened because Dart(mobile) and Go(desktop) were not compatible due to a different version of RSA encryption. Go supports RFC 8017 (PKCS #1 2.2) whereas pointycastle(Dart RSA package) supports RFC 2437 (PKCS #1 2.0). So, we decided to use FFI (foreign function interface). FFI uses a code written in one language to access packages/methods in a different language. In a short example, we are using Go (host language) RSA implementation, a higher version than Dart RSA, and give Dart (guest language) the ability to read and use Go's implementation. To make it work, we had to write `libra.go`, which is written Go(CGo) and it was exported for `ffi_rsa.dart` to use.
-
+  - Another issue we encountered is during the peer-to-peer setup, both client A and client B must be able to contact the server during the same server function, however, we found that client A can freely send and receive messages, however, client B cannot send messages to the same function without the amin connection handler intercepting the message thus starting a new thread. We are working on a fix for this but as of now, we have the server only send messages to client B and client B only receives data with no reply. 
 ## Changes ##
 - client.dart
   - `commandHandler`: reads message from server and distribute the packet into correct channel.
@@ -43,4 +43,6 @@
 ### In Progress
 
 - server.go
-  - Implementing a fix where the recipient client cannot write to the server during peer-to-peer initialization
+  - Implementing a fix where the recipient client cannot write to the server during peer-to-peer initialization.
+  - Finishing UDP peer-to-peer holepunching.
+  - Researching and implementing TCP holepunching. 
