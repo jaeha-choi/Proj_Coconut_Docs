@@ -2,15 +2,17 @@
 
 #### Date: Nov 5, 2021
 
-## Changes
+
 
 #### **Mobile**
  ## Encountered Issues ##
   - This week, we encountered issues when we tested encryption and decryption on cross platforms (mobile, desktop). This happened because Dart(mobile) and Go(desktop) were not compatible due to a different version of RSA encryption. Go supports RFC 8017 (PKCS #1 2.2) whereas pointycastle(Dart RSA package) supports RFC 2437 (PKCS #1 2.0). So, we decided to use FFI (foreign function interface). FFI uses a code written in one language to access packages/methods in a different language. In a short example, we are using Go (host language) RSA implementation, a higher version than Dart RSA, and give Dart (guest language) the ability to read and use Go's implementation. To make it work, we had to write `libra.go`, which is written Go(CGo) and it was exported for `ffi_rsa.dart` to use.
 
+## Changes ##
 - client.dart
   - `commandHandler`: reads message from server and distribute the packet into correct channel.
   - We added `mapOfChannel` to the Client structure. Now, all the feature calls will create `mapOfChannel` to store the data from the server. With this approach, we can achieve the asynchronous reading/writing method. 
+  - `ffi_rsa.dart`: added tests for encryption, decryption, and verification
 
 - UI
   - `shared preferences`: stores the data(contact list) in a file on the device.
